@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-// context v1
-// import Parent from './context/v1/Parent';
-// import Article from './context/v2/Article';
-import SoltContext from './soltContext';
+import AppLayout from './context/hocSlotContext';
 
 class App extends Component {
   render() {
@@ -14,7 +11,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header> */}
-        <SoltContext />
+        <AppLayout />
       </div>
     );
   }

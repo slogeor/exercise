@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Slot from './Solt';
+import Slot from './Slot';
 
 class AppLayout extends React.Component {
 

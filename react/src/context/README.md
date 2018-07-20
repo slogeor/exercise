@@ -76,6 +76,48 @@ class Child extends Component {
 export default Child;
 ```
 
+### 新版 API
+
+**React.createContext**
+
+```js
+const ThemeContext = React.createContext({
+  background: '#green',
+  color: '#FF5000'
+});
+```
+
+**Provider**
+
+```js
+<ThemeContext.Provider value={{background: '#green', color: '#FF5000'}}>
+  <Header />
+</ThemeContext.Provider>
+````
+
+**Consumer**
+
+```js
+  <ThemeContext.Consumer>
+    {context => (
+      <h1 style={{background: context.background, color: context.color}}>
+        {this.props.children}
+      </h1>
+    )}
+  </ThemeContext.Consumer>
+```
+
+### 总结
+
+- 相比props和state，React的Context可以实现跨层级的组件通信。
+- Context API的使用基于生产者消费者模式。生产者一方，通过组件静态属性childContextTypes声明，然后通过实例方法getChildContext()创建Context对象。消费者一方，通过组件静态属性contextTypes申请要用到的Context属性，然后通过实例的context访问Context的属性。
+- 使用Context需要多一些思考，不建议在App中使用Context，但如果开发组件过程中可以确保组件的内聚性，可控可维护，不破坏组件树的依赖关系，影响范围小，可以考虑使用Context解决一些问题。
+- 通过Context暴露API或许在一定程度上给解决一些问题带来便利，但个人认为不是一个很好的实践，需要慎重。
+- 旧版本的Context的更新需要依赖setState()，是不可靠的，不过这个问题在新版的API中得以解决。
+- 可以把Context当做组件的作用域来看待，但是需要关注Context的可控性和影响范围，使用之前，先分析是否真的有必要使用，避免过度使用所带来的一些副作用。
+- 可以把Context当做媒介，进行App级或者组件级的数据共享。
+- 设计开发一个组件，如果这个组件需要多个组件关联组合的，使用Context或许可以更加优雅。
+
 ### 参考文献
 
 - [https://juejin.im/post/5a90e0545188257a63112977](https://juejin.im/post/5a90e0545188257a63112977)
