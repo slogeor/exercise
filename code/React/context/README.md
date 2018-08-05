@@ -1,7 +1,3 @@
-### 构建构建
-- [Create React App](https://github.com/facebookincubator/create-react-app)
-
-
 ### 如何使用Context
 
 如果要Context发挥作用，需要用到两种组件，一个是Context生产者(Provider)，通常是一个父节点，另外是一个Context的消费者(Consumer)，通常是一个或者多个子节点。
@@ -124,3 +120,6 @@ const ThemeContext = React.createContext({
 ### 参考文献
 
 - [https://juejin.im/post/5a90e0545188257a63112977](https://juejin.im/post/5a90e0545188257a63112977)
+
+### 构建构建
+- [Create React App](https://github.com/facebookincubator/create-react-app)
