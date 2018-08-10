@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>b.html</h1>
+  <script>
+    var ifr = document.createElement('iframe');
+    ifr.src = 'http://slogeor.com:10002/b.html';
+    ifr.style.display = 'none';
+    ifr.onload = function() {
+      console.log(window.name)
+    };
+    document.body.appendChild(ifr);
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <iframe id="ifr" src="http://myslogeor.com:10002/b.html"></iframe>
+  <script type="text/javascript">
+    window.onload = function() {
+      var ifr = document.getElementById('ifr');
+      // 若写成'http://b.com/c/proxy.html'效果一样
+      // 若写成'http://c.com'就不会执行postMessage了
+      var targetOrigin = 'http://myslogeor.com:10002';
+      ifr.contentWindow.postMessage('I was there!', targetOrigin);
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>a.html</h1>
+  <script>
+    document.domain = 'slogeor.com';
+    var ifr = document.createElement('iframe');
+    ifr.src = 'http://about.slogeor.com:10002/b.html';
+    ifr.style.display = 'none';
+    document.body.appendChild(ifr);
+    ifr.onload = function(){
+      var doc = ifr.contentDocument || ifr.contentWindow.document;
+      console.log(doc.getElementById('demo'))
+    };
+  </script>
+</body>
+</html>

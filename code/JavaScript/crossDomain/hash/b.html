@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>b.html</h1>
+  <script>
+    console.log(location.hash)
+    //模拟一个简单的参数处理操作
+    switch(location.hash){
+      case '#paramdo':
+        callBack();
+        break;
+      case '#paramset':
+        //do something……
+        break;
+    }
+
+    function callBack(){
+      try {
+        parent.location.hash = 'somedata';
+      } catch (e) {
+        console.log(e);
+        // ie、chrome 的安全机制无法修改 parent.location.hash，
+        // 所以要利用一个中间域下的代理iframe
+        var ifrproxy = document.createElement('iframe');
+        ifrproxy.style.display = 'none';
+        // 注意该文件在"myslogeor.com"域下，和 a.html 在同一个域下
+        ifrproxy.src = 'http://myslogeor.com:10002/c.html#somedata';
+        document.body.appendChild(ifrproxy);
+      }
+    }
+  </script>
+</body>
+</html>

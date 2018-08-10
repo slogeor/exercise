@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>a.html</h1>
+  <script>
+    function startRequest(){
+      var ifr = document.createElement('iframe');
+      ifr.style.display = 'none';
+      ifr.src = 'http://slogeor.com:10002/b.html#paramdo';
+      document.body.appendChild(ifr);
+    }
+
+    function checkHash() {
+      try {
+        var data = location.hash;
+        console.log('Now the data is '+ data);
+      } catch(e) {};
+    }
+    setInterval(checkHash, 2000);
+
+    startRequest();
+  </script>
+</body>
+</html>
