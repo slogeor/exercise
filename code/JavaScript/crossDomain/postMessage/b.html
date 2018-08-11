@@ -9,11 +9,13 @@
 <body>
   <script type="text/javascript">
     window.addEventListener('message', function(event){
+      console.log('event:', event)
       // 通过origin属性判断消息来源地址
       if (event.origin == 'http://slogeor.com:10002') {
         console.log(event.data);    // 弹出"I was there!"
-        console.log(event.source);  // 对a.com、index.html中window对象的引用
-                                // 但由于同源策略，这里event.source不可以访问window对象
+        // 对a.com、index.html中window对象的引用
+        // 但由于同源策略，这里event.source不可以访问window对象
+        console.log(event.source);
       }
     }, false);
   </script>
