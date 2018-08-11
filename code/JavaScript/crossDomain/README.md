@@ -1,3 +1,8 @@
+
+### 总结
+
+- [前端跨域](https://github.com/slogeor/blog/issues/1)
+
 ### 参考资源
 
 - [前端解决跨域问题的8种方案](http://www.cnblogs.com/JChen666/p/3399951.html)
