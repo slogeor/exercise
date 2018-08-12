@@ -19,8 +19,12 @@
       console.log('err:', err);
     }
 
+    source.addEventListener('event1', function(evt) {
+      console.log('event1:', evt.data);
+    })
+
     source.addEventListener('message', function(evt) {
-      console.log(evt.data);
+      console.log('message:', evt.data);
     })
   </script>
 </body>

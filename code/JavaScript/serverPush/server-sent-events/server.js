@@ -15,6 +15,7 @@ let server=http.createServer(function(req,res) {
         res.end();
       }else{
         res.write('id:' + count + '\n');
+        res.write('event: event1' + '\n');
         res.write('data:' + new Date().toLocaleString() + '\n\n');
       }
     },2000);
