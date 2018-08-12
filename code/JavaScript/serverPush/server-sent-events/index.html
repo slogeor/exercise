@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>SSE</h1>
+  <script>
+    const source = new EventSource('http://localhost:8080/event');
+
+    source.onopen = function() {
+      console.log('open');
+    }
+
+    source.onerror = function(err) {
+      console.log('err:', err);
+    }
+
+    source.addEventListener('message', function(evt) {
+      console.log(evt.data);
+    })
+  </script>
+</body>
+</html>

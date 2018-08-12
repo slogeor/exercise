@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>http-streaming</h1>
+  <script>
+    function createClientStream(url, progress, done) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('get', url, true);
+
+      let received = 0;
+      let result = null;
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 3) {
+          console.log('xhr.responseText:', xhr.responseText)
+          result = xhr.responseText.substring(received);
+          received += result.length;
+          progress(result);
+        } else if (xhr.readyState === 4) {
+          done(xhr.responseText);
+        }
+      }
+      xhr.send(null);
+    }
+
+    createClientStream('http://localhost:8080/time', function(data) {
+      console.log('progress data:', data);
+    }, function(data) {
+      console.log("Done,the last data is:"+data);
+    });
+  </script>
+</body>
+</html>

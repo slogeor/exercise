@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>基于iframe的数据流</h1>
+  <script>
+    function process(data) {
+      console.log('process:', data);
+    }
+
+    function stream(url) {
+      const ifr = document.createElement('iframe');
+      ifr.src = url;
+      ifr.style.display = 'none';
+      document.body.appendChild(ifr);
+    }
+
+    stream('http://localhost:8080/htmlfile');
+  </script>
+</body>
+</html>

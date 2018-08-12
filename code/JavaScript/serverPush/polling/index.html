@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>polling</h1>
+  <script>
+    function polling(url, method, data) {
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            console.log('xhr:', xhr);
+            console.log('responseTxt:', xhr.responseText);
+          } else {
+            console.log('fail');
+          }
+        }
+      }
+      xhr.open(method, url, true);
+      xhr.send(data);
+    }
+
+    setInterval(function() {
+      polling('http://localhost:8088/time','get');
+    }, 2000);
+  </script>
+</body>
+</html>
