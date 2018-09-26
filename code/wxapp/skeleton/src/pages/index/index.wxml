@@ -1,0 +1,22 @@
+<skeleton selector="skeleton" loading="spin"  bgcolor="#FFF" wx:if="{{showSkeleton}}"></skeleton>
+<!--index.wxml-->
+<view class="container skeleton">
+  <view class="userinfo">
+    <block>
+      <image class="userinfo-avatar skeleton-radius" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname skeleton-rect">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view style="margin: 20px 10px">
+    <view wx:for="{{lists}}" class="lists" wx:key="unique">
+      <icon type="success" size="20" class="list skeleton-radius"/>
+      <text class="skeleton-rect">{{item}}</text>
+    </view>
+  </view>
+  <view class="lists">
+    <text class="left skeleton-rect">正文</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto skeleton-rect">{{motto}}</text>
+  </view>
+</view>
